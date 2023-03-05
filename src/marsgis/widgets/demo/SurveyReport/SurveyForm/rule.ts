@@ -4,7 +4,7 @@ export default {
   geographicInfo: { required: true, message: "Please select Activity zone", trigger: "change" },
   centerLongitude: { required: true, message: "Please select Activity zone", trigger: "change" },
   centerLatitude: { required: true, message: "Please select Activity zone", trigger: "change" },
-  groundFeatureUrl: { required: false, message: "Please select Activity zone", trigger: "change" },
+  groundFeatureUrl: { required: true, message: "Please select Activity zone", trigger: "change" },
   groundFeature: {
     anomalous: { required: true, message: "Please select Activity zone", trigger: "change" },
     artificial: { required: true, message: "Please select Activity zone", trigger: "change" },

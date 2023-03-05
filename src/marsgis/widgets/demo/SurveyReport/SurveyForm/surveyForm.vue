@@ -23,9 +23,9 @@
         <!-- <a-col :span="3"><a-button>标出点位</a-button></a-col> -->
       </a-row>
       <a-form-item label="地物信息全局" name="groundFeatureUrl">
-        <a-row :size="size" style="height: 150px" type="flex" justify="center" :gutter="[0, 16]"
+        <a-row :size="size" style="height: 70px" type="flex" justify="center" :gutter="[0, 16]"
           ><a-col :span="8">
-            <a-upload list-type="picture" :file-list="fileList" @remove="handleRemove" :before-upload="berforeUploads">
+            <a-upload list-type="picture" :file-list="fileList" :multiple="false" @remove="handleRemove" :before-upload="berforeUploads">
               <a-button> upload </a-button></a-upload
             >
           </a-col></a-row
@@ -292,29 +292,25 @@ const formState: Ref<AllForm> = ref({
   geology: "0"
 })
 const rule = rules as any
-// 获取groundFeatureUrl 的图片
-const fileList = ref<FileItem[]>([]) as any
-const photos: string[] = []
+// 获取groundFeatureUrl 的图片<FileItem[]>
+const fileList = ref([])
 const berforeUploads = async (file) => {
   formState.value.groundFeatureUrl = await beforeUpdates(file, fileList)
   return false
 }
 
 const handleRemove = (file: FileItem) => {
-  const index = fileList.value.indexOf(file)
-  const newFileList = fileList.value.slice()
-  newFileList.splice(index, 1)
-  fileList.value = newFileList
+  handleRemoves(file, fileList, formState, "groundFeatureUrl")
 }
 // ---------------------------------------
 // 获取多方向的图片
 const allaspect = ref([])
 const beforeaspectUpload = async (file) => {
-  formState.value.slopeInfo.multipleSlopeDirections = await beforeUpdates(file, multipleSlopes)
+  formState.value.slopeInfo.multipleSlopeDirections = await beforeUpdates(file, allaspect)
   return false
 }
 const handleRemoveallaspect = (file: FileItem) => {
-  handleRemoves(file, allaspect)
+  handleRemoves(file, allaspect, formState, "multipleSlopeDirections")
 }
 // 多角度图片上传
 const multipleSlopes = ref([])
@@ -322,7 +318,8 @@ const beforeslopesUpload = async (file) => {
   formState.value.slopeInfo.multipleSlopes = await beforeUpdates(file, multipleSlopes)
 }
 const handleRemultipleSlopes = (file: FileItem) => {
-  handleRemoves(file, multipleSlopes)
+  handleRemoves(file, multipleSlopes, formState, "multipleSlopes")
+  console.log(formState.value.slopeInfo.multipleSlopes, "fileList2")
 }
 // 上传kml
 const kmls = ref([])
@@ -341,9 +338,9 @@ const beforekmlUpload = async (file) => {
   // formState.value.coordinate.fileUrl = await beforeUpdates(file, kmls)
 }
 const handleKml = (file) => {
-  handleRemoves(file, kmls)
+  handleRemoves(file, kmls, formState, "x")
 }
-const show: Ref<boolean> = ref(false)
+// const show: Ref<boolean> = ref(false)
 function is(val: unknown, type: string) {
   return toString.call(val) === `[object ${type}]`
 }
@@ -352,8 +349,8 @@ const onSubmit = async () => {
   formRef.value
     .validate()
     .then(() => {
-      const StringPhotos = photos.join()
       if (formState.value.id) {
+        console.log(JSON.stringify(formState.value), "heihei")
         useForms.updatas(JSON.parse(JSON.stringify(formState.value)))
       } else {
         useForms.addforms(JSON.parse(JSON.stringify(formState.value)))
