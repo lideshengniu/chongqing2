@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "jsx": "preserve",
+    "allowJs": true,
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "types": ["vite/client", "node", "element-plus/global"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@mars/*": ["src/marsgis/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/marsgis/widgets/demo/Mine/map.ts",
+    "src/auto-imports.d.ts",
+    "src/components.d.ts",
+    "src/auto-import.d.ts",
+    "src/components.d.ts"
+  ],
+  "exclude": ["node_modules", "src/**/*.js", "dist"]
+}

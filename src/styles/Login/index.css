@@ -1,0 +1,125 @@
+.layout {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  background: url("img/world.webp") no-repeat center / cover;
+  position: relative;
+}
+.layout .load {
+  width: 480px;
+  height: 480px;
+  background: linear-gradient(to bottom, rgba(54, 56, 57, 0.814), rgba(55, 97, 196, 0.83), rgba(187, 204, 213, 0.858));
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  border-top: none;
+  border-left: none;
+  letter-spacing: 10px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 32px;
+  box-shadow: 10px 8px 24px 1.6px rgba(127, 180, 237, 0.5);
+}
+.layout .load > li {
+  height: 80px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+.layout .load > li .icons {
+  font-size: 40px;
+  font-weight: 900;
+  color: #191a1c;
+  height: 50px;
+  line-height: 50px;
+  width: 50px;
+  text-align: center;
+}
+.layout .load > li input {
+  height: 80%;
+  width: 90%;
+  flex: 1;
+  margin-left: 24px;
+  margin-right: 16px;
+  background-color: rgba(174, 168, 168, 0.2);
+  border-radius: 16px;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: #0d1214;
+  caret-color: #0b0b0b;
+  padding-left: 10px;
+}
+.layout .load li:nth-child(1) {
+  margin-top: 0rem;
+  height: 96px;
+}
+.layout .load li:nth-child(1) .Title {
+  color: #000000;
+  /*可以把设计字体样式的语句写在一起，这样更方便*/
+  font-size: 64px;
+  font-weight: 900;
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  line-height: 80px;
+  font-family: Times New Roman, Arial, serif, Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+}
+.layout .load li:last-child {
+  flex: 3;
+}
+.layout .load .Login-down {
+  width: 300px;
+  background-color: rgba(218, 198, 198, 0.01);
+  height: 100%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 4px 0.8rx #a5e1f3;
+  border-radius: 10px;
+}
+.layout .load .Login-down .Login-downs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.layout .load .Login-down .Login-downs li {
+  height: 70%;
+  width: 100%;
+}
+.layout .load .Login-down .Login-downs .ClickLoad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.layout .load .Login-down .Login-downs .ClickLoad div {
+  height: 56px;
+  width: 240px;
+  background-color: rgba(176, 187, 204, 0.076);
+  line-height: 50px;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 32px;
+  letter-spacing: 0rem;
+}
+.layout .load .Login-down .Login-downs .ClickLoad div:hover {
+  background-color: rgba(208, 215, 222, 0.1);
+  border: 2px solid rgba(168, 193, 232, 0.815);
+  box-shadow: 1px 2px 2.2px 1.2px rgba(83, 204, 226, 0.815);
+}
+.layout .load .Login-down .Login-downs li:last-child {
+  width: 100%;
+  height: 80px;
+}
+.layout .load .Login-down .Login-downs li:last-child a {
+  display: inline-block;
+  font-size: 17px;
+  height: 40px;
+  line-height: 40px;
+  color: black;
+  width: 240px;
+  letter-spacing: 2px;
+}
+.layout .load .Login-down .Login-downs li:last-child a:hover {
+  color: rgba(233, 69, 69, 0.787);
+}
