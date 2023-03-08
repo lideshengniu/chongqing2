@@ -116,16 +116,7 @@ const onClickImpFile = (info: any) => {
       console.log(res, "ressssss")
       // const positions = res[1].split(" ")
       const arr = []
-      // for (let i = 0; i < positions.length - 1; i++) {
-      //   const graphicLayer = getManagerLayer()
-      //   const element = positions[i]
-      //   const arr1 = element.split(",")
-      //   const arr2 = [Number(arr1[0]), Number(arr1[1])]
-      //   // mapWork.addDrawGraphic(graphicLayer, arr2, `文件${filess.value}:${i}`)
-      //   mapWork.addDemoGraphic(graphicLayer, arr2, i)
-      //   // arr.push(arr1)
-      //   console.log(arr2, "arr1")
-      // }
+
       console.log(res, "strkml")
       kgUtil.toGeoJSON(strkml).then((geojson) => {
         console.log("kml2geojson转换结果为", geojson)
@@ -134,7 +125,10 @@ const onClickImpFile = (info: any) => {
         graphicLayer.loadGeoJSON(geojson, {
           flyTo: true,
           style: {
-            clampToGround: true
+            clampToGround: true,
+            fill: false,
+            outline: true,
+            outlineWidth: 5
           }
           // show: true
         })

@@ -1,5 +1,6 @@
 import * as mars3d from "mars3d"
 import useStore from "@/store"
+import { getFile } from "@/utils/getUrlFile"
 import { useWidget } from "@mars/common/store/widget"
 const { useForms } = useStore()
 const { currentWidget, updateWidget, activate } = useWidget()
@@ -17,10 +18,15 @@ export function onMounted(mapInstance: mars3d.Map): void {
     const id = data.graphic.options.id
     updateWidget("surveyForm", { id: `${id}`, show: true })
   })
-  datas.map((item) => {
-    const position = JSON.parse(item.position)
-    console.log(item.id, "item")
-    addPoint(graphicLayer, position, item.id)
+
+  datas.map(async (item) => {
+    const items = JSON.parse(JSON.stringify(item))
+    const id = items.id
+    console.log(items.coordinate.fileUrl, "****item")
+    const positions = await getFile(items.coordinate.fileUrl, "KML")
+    console.log(positions, "positions")
+    console.log(items.id, "item")
+    // addPoint(graphicLayer, position, item.id)
     return item
   })
 }
@@ -31,9 +37,9 @@ export function onUnmounted(): void {
   map = null
 }
 // 标记点位
-export function addPoint(graphicLayer, position: number[], id) {
-  const graphic = new mars3d.graphic.DivLightPoint({
-    position: position,
+export function addPoint(graphicLayer, positions: number[], id) {
+  const graphic = new mars3d.graphic.PolylineEntity({
+    positions: positions,
     style: {
       radii: new Cesium.Cartesian3(30.0, 20.0, 15.0),
       innerRadii: new Cesium.Cartesian3(30.0, 30.0, 35.0),

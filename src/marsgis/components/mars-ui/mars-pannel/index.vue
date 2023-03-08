@@ -199,7 +199,8 @@ export default {
   border-radius: 4px;
   z-index: 1000;
 
-  background-image: url(../themes/assets/images/pannel-bg.png);
+  // background-image: url(../themes/assets/images/pannel-bg.png);
+  background-image: linear-gradient(to bottom, rgba(126, 226, 218, 0.247) 20%, rgba(54, 112, 95, 0.308));
   background-size: 100% 100%;
   background-repeat: no-repeat;
 

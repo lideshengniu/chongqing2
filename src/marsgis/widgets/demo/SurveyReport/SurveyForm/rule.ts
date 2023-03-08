@@ -4,7 +4,7 @@ export default {
   geographicInfo: { required: true, message: "Please select Activity zone", trigger: "change" },
   centerLongitude: { required: true, message: "Please select Activity zone", trigger: "change" },
   centerLatitude: { required: true, message: "Please select Activity zone", trigger: "change" },
-  groundFeatureUrl: { required: true, message: "Please select Activity zone", trigger: "change" },
+  groundFeatureUrl: { required: true, message: "请插图一张图片", trigger: "change" },
   groundFeature: {
     anomalous: { required: true, message: "Please select Activity zone", trigger: "change" },
     artificial: { required: true, message: "Please select Activity zone", trigger: "change" },
@@ -12,9 +12,9 @@ export default {
   },
   slopeInfo: {
     slope: { required: true, message: "Please select Activity zone", trigger: "change" },
-    multipleSlopes: { required: true, message: "Please select Activity zone", trigger: "change" },
+    multipleSlopes: { required: true, message: "请插图一张图片", trigger: "change" },
     singleAspect: { required: true, message: "Please select Activity zone", trigger: "change" },
-    multipleSlopeDirections: { required: true, message: "Please select Activity zone", trigger: "change" }
+    multipleSlopeDirections: { required: true, message: "请插图一张图片", trigger: "change" }
   },
   range: {
     frontHeight: { required: true, message: "Please select Activity zone", trigger: "change" },

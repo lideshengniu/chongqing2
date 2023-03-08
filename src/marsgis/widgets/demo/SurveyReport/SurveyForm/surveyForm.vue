@@ -328,15 +328,28 @@ const beforekmlUpload = async (file) => {
   const data = await addkml(file)
 
   formState.value.coordinate.fileUrl = data.replace("http://localhost:15130/", "http://1.14.72.127/")
-  kmls.value.push({
-    uid: "-1",
-    name: `${file.name}.kml`,
-    status: "done",
-    url: data.replace("http://localhost:15130/", "http://1.14.72.127/")
-  })
-
+  if (kmls.value.length === 1) {
+    kmls.value = [
+      {
+        uid: "-1",
+        name: `${file.name}.kml`,
+        status: "done",
+        url: data.replace("http://localhost:15130/", "http://1.14.72.127/")
+      }
+    ]
+  } else {
+    kmls.value.push({
+      uid: "-1",
+      name: `${file.name}.kml`,
+      status: "done",
+      url: data.replace("http://localhost:15130/", "http://1.14.72.127/")
+    })
+  }
+  console.log(formState.value.coordinate.fileUrl, "formState.value.coordinate.fileUrl")
+  // getFile(formState.value.coordinate.fileUrl, "hh")
   // formState.value.coordinate.fileUrl = await beforeUpdates(file, kmls)
 }
+
 const handleKml = (file) => {
   handleRemoves(file, kmls, formState, "x")
 }
